@@ -41,7 +41,7 @@ const Model = (): React.ReactNode => {
           const handleOnPress = () => onSelectMake(item);
           return (
             <ListOptionSelector onPress={handleOnPress}>
-              {item.MakeName}
+              {item.Model_Name}
             </ListOptionSelector>
           );
         }}

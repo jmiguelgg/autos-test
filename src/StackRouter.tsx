@@ -61,7 +61,7 @@ const StackRouter = (): React.ReactNode => {
             headerTitle: () => (
               <HeaderScreen
                 title="Data"
-                subtitle={`${year} ${make.MakeName} ${model.MakeName}`}
+                subtitle={`${year} ${make.MakeName} ${model.Model_Name}`}
               />
             ),
           }}
