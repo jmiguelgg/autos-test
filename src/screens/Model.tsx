@@ -9,6 +9,7 @@ import {setModel} from '../slices/AutoPartSlice';
 import {RootState} from '../Store';
 import {getModelByMakeAndYear} from '../api/Vehicles';
 import {ModelI} from '../interfaces/ModelI';
+import Loader from '../components/Loader';
 
 const Model = (): React.ReactNode => {
   const {year, make} = useSelector((state: RootState) => state.autoParts);
@@ -35,6 +36,7 @@ const Model = (): React.ReactNode => {
       <FlatList
         keyExtractor={(_, index) => `year-${index}`}
         data={makeOptons}
+        ListEmptyComponent={<Loader />}
         renderItem={({item}) => {
           const handleOnPress = () => onSelectMake(item);
           return (

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList} from 'react-native';
+import {ActivityIndicator, FlatList} from 'react-native';
 import ScreenLayout from '../components/ScreenLayout';
 import {SteepOption} from '../components/NavSteep';
 import ListOptionSelector from '../components/ListOptionSelector';
@@ -9,6 +9,7 @@ import {setMake} from '../slices/AutoPartSlice';
 import {RootState} from '../Store';
 import {getMakeByMfrAndYear} from '../api/Vehicles';
 import {MakeI} from '../interfaces/MakeI';
+import Loader from '../components/Loader';
 
 const Make = (): React.ReactNode => {
   const {year, idsMfr} = useSelector((state: RootState) => state.autoParts);
@@ -37,6 +38,7 @@ const Make = (): React.ReactNode => {
       <FlatList
         keyExtractor={(_, index) => `year-${index}`}
         data={makeOptons}
+        ListEmptyComponent={<Loader />}
         renderItem={({item}) => {
           const handleOnPress = () => onSelectMake(item);
           return (

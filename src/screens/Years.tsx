@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {FlatList} from 'react-native';
+import {ActivityIndicator, FlatList} from 'react-native';
 import {SteepOption} from '../components/NavSteep';
 import ListOptionSelector from '../components/ListOptionSelector';
 import {useDispatch} from 'react-redux';
@@ -7,6 +7,7 @@ import {setIdsMfr, setYear} from '../slices/AutoPartSlice';
 import {useNavigation} from '@react-navigation/native';
 import ScreenLayout from '../components/ScreenLayout';
 import {getMfr} from '../api/Vehicles';
+import Loader from '../components/Loader';
 
 const yearStart = 1995;
 const yearStop = 2024;
@@ -39,6 +40,7 @@ const Years = (): React.ReactNode => {
       <FlatList
         keyExtractor={(_, index) => `year-${index}`}
         data={years}
+        ListEmptyComponent={<Loader />}
         renderItem={({item}) => {
           const handleOnPress = () => onSelectYear(item);
           return (
