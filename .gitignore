@@ -567,3 +567,4 @@ fabric.properties
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,macos,visualstudiocode,yarn,node,react,reactnative,xcode,androidstudio
+/ios/Pods
