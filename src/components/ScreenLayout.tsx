@@ -1,6 +1,6 @@
 import React from 'react';
 import NavSteep, {SteepOption} from './NavSteep';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 
 interface ScreenLayoutProps {
   navSteep: SteepOption;
@@ -13,8 +13,10 @@ const ScreenLayout = ({
 }: ScreenLayoutProps): React.ReactNode => {
   return (
     <SafeAreaView style={styles.container}>
-      <NavSteep navSteepSelected={navSteep} />
-      {children}
+      <View>
+        <NavSteep navSteepSelected={navSteep} />
+        {children}
+      </View>
     </SafeAreaView>
   );
 };
@@ -22,6 +24,7 @@ const ScreenLayout = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'flex-start',
     backgroundColor: '#ffffff',
   },
 });
