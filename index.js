@@ -1,5 +1,5 @@
 import {AppRegistry} from 'react-native';
 import {name as appName} from './app.json';
-import StackRouter from './src/StackRouter';
+import App from './src/App';
 
-AppRegistry.registerComponent(appName, () => StackRouter);
+AppRegistry.registerComponent(appName, () => App);

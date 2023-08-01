@@ -3,9 +3,19 @@ import React from 'react';
 import Years from './screens/Years';
 import Make from './screens/Make';
 import {NavigationContainer} from '@react-navigation/native';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+
+type RootStackParamList = {
+  Years: undefined;
+  Make: undefined;
+  Model: undefined;
+  Data: undefined;
+};
+
+type Props = NativeStackScreenProps<RootStackParamList>;
 
 const StackRouter = (): React.ReactNode => {
-  const Stack = createStackNavigator();
+  const Stack = createStackNavigator<Props>();
   return (
     <NavigationContainer>
       <Stack.Navigator>
