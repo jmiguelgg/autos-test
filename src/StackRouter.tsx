@@ -1,9 +1,14 @@
+/* eslint-disable react/no-unstable-nested-components */
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import Years from './screens/Years';
 import Make from './screens/Make';
 import {NavigationContainer} from '@react-navigation/native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {Text} from 'react-native';
+import {useSelector} from 'react-redux';
+import {RootState} from './Store';
+import HeaderScreen from './components/HeaderScreen';
 
 type RootStackParamList = {
   Years: undefined;
@@ -15,6 +20,9 @@ type RootStackParamList = {
 type Props = NativeStackScreenProps<RootStackParamList>;
 
 const StackRouter = (): React.ReactNode => {
+  const {year, make, model} = useSelector(
+    (state: RootState) => state.autoParts,
+  );
   const Stack = createStackNavigator<Props>();
   return (
     <NavigationContainer>
@@ -22,12 +30,16 @@ const StackRouter = (): React.ReactNode => {
         <Stack.Screen
           name="Years"
           component={Years}
-          options={{title: 'Choose Year'}}
+          options={{headerTitle: () => <HeaderScreen title="Choose Year" />}}
         />
         <Stack.Screen
           name="Make"
           component={Make}
-          options={{title: 'Choose Make'}}
+          options={{
+            headerTitle: () => (
+              <HeaderScreen title="Choose Make" subtitle={year} />
+            ),
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

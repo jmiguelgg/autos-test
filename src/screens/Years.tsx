@@ -5,12 +5,14 @@ import ListOptionSelector from '../components/ListOptionSelector';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useDispatch} from 'react-redux';
 import {setYear} from '../slices/AutoPartSlice';
+import {useNavigation} from '@react-navigation/native';
 
 const yearStart = 1995;
 const yearStop = 2024;
 
-const Years = ({navigation}): React.ReactNode => {
+const Years = (): React.ReactNode => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const years = Array.from(
     {length: yearStop - yearStart + 1},
     (_, i) => yearStart + i,
