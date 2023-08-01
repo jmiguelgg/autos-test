@@ -5,10 +5,10 @@ import Years from './screens/Years';
 import Make from './screens/Make';
 import {NavigationContainer} from '@react-navigation/native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {Text} from 'react-native';
 import {useSelector} from 'react-redux';
 import {RootState} from './Store';
 import HeaderScreen from './components/HeaderScreen';
+import Model from './screens/Model';
 
 type RootStackParamList = {
   Years: undefined;
@@ -38,6 +38,18 @@ const StackRouter = (): React.ReactNode => {
           options={{
             headerTitle: () => (
               <HeaderScreen title="Choose Make" subtitle={year} />
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="Model"
+          component={Model}
+          options={{
+            headerTitle: () => (
+              <HeaderScreen
+                title="Choose Model"
+                subtitle={`${year} ${make.MakeName}`}
+              />
             ),
           }}
         />

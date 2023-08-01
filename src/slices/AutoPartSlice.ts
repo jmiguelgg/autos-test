@@ -1,17 +1,18 @@
 import {createSlice} from '@reduxjs/toolkit';
 import type {PayloadAction} from '@reduxjs/toolkit';
 import {MakeI} from '../interfaces/MakeI';
+import {ModelI} from '../interfaces/ModelI';
 
 export interface AutoPartStore {
   year: number;
   make: MakeI;
-  model: string;
+  model: ModelI;
   idsMfr?: number[];
 }
 
 const initialState: AutoPartStore = {
   year: 0,
-  model: '',
+  model: {} as ModelI,
   make: {} as MakeI,
 };
 
@@ -25,7 +26,7 @@ export const counterSlice = createSlice({
     setMake: (state, action: PayloadAction<MakeI>) => {
       state.make = action.payload;
     },
-    setModel: (state, action: PayloadAction<string>) => {
+    setModel: (state, action: PayloadAction<ModelI>) => {
       state.model = action.payload;
     },
     setIdsMfr: (state, acion: PayloadAction<number[]>) => {
@@ -35,7 +36,6 @@ export const counterSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const {setYear, setMake, setModel, setIdsMfr, reset} =
   counterSlice.actions;
 
