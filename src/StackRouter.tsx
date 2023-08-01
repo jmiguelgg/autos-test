@@ -9,6 +9,7 @@ import {useSelector} from 'react-redux';
 import {RootState} from './Store';
 import HeaderScreen from './components/HeaderScreen';
 import Model from './screens/Model';
+import Data from './screens/Data';
 
 type RootStackParamList = {
   Years: undefined;
@@ -49,6 +50,18 @@ const StackRouter = (): React.ReactNode => {
               <HeaderScreen
                 title="Choose Model"
                 subtitle={`${year} ${make.MakeName}`}
+              />
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="Data"
+          component={Data}
+          options={{
+            headerTitle: () => (
+              <HeaderScreen
+                title="Data"
+                subtitle={`${year} ${make.MakeName} ${model.MakeName}`}
               />
             ),
           }}
