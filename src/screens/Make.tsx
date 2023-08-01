@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StatusBar, Text} from 'react-native';
 
-const Home = (): React.ReactNode => {
+const Make = (): React.ReactNode => {
   return (
     <SafeAreaView style={{backgroundColor: 'white'}}>
       <StatusBar barStyle="light-content" backgroundColor="white" />
@@ -10,4 +10,4 @@ const Home = (): React.ReactNode => {
   );
 };
 
-export default Home;
+export default Make;
