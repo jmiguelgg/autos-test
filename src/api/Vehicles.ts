@@ -2,9 +2,12 @@ import {MakeI} from '../interfaces/MakeI';
 import {Manufacturer} from '../interfaces/Manufacturer';
 import {ModelI} from '../interfaces/ModelI';
 
+const BaseDomain = 'https://vpic.nhtsa.dot.gov/api';
+const ApiSegment = 'vehicles';
+
 export const getMfr = async (): Promise<Manufacturer[]> => {
   const result = await fetch(
-    'https://vpic.nhtsa.dot.gov/api/vehicles/GetAllManufacturers?format=json',
+    `${BaseDomain}/${ApiSegment}/GetAllManufacturers?format=json`,
   );
   const {Results} = await result.json();
   return Results as Manufacturer[];
@@ -18,7 +21,7 @@ export const getMakeByMfrAndYear = async (
   await Promise.all(
     idsMfr.map(async idMfr => {
       const result = await fetch(
-        `https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForManufacturerAndYear/${idMfr}?year=${year}&format=json`,
+        `${BaseDomain}/${ApiSegment}/GetMakesForManufacturerAndYear/${idMfr}?year=${year}&format=json`,
       );
       const {Results} = await result.json();
       makes.push(...Results);
@@ -32,7 +35,7 @@ export const getModelByMakeAndYear = async (
   year: number,
 ): Promise<ModelI[]> => {
   const result = await fetch(
-    `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/${make.MakeId}/modelyear/${year}?format=json`,
+    `${BaseDomain}/${ApiSegment}/GetModelsForMakeIdYear/makeId/${make.MakeId}/modelyear/${year}?format=json`,
   );
   const {Results} = await result.json();
   return Results as ModelI[];

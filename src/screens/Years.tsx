@@ -6,7 +6,7 @@ import {useDispatch} from 'react-redux';
 import {setIdsMfr, setYear} from '../slices/AutoPartSlice';
 import {useNavigation} from '@react-navigation/native';
 import ScreenLayout from '../components/ScreenLayout';
-import {getMfr} from '../api/ApiCalls';
+import {getMfr} from '../api/Vehicles';
 
 const yearStart = 1995;
 const yearStop = 2024;

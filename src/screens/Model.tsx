@@ -7,7 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {setModel} from '../slices/AutoPartSlice';
 import {RootState} from '../Store';
-import {getModelByMakeAndYear} from '../api/ApiCalls';
+import {getModelByMakeAndYear} from '../api/Vehicles';
 import {ModelI} from '../interfaces/ModelI';
 
 const Model = (): React.ReactNode => {

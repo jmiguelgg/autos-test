@@ -7,7 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {setMake} from '../slices/AutoPartSlice';
 import {RootState} from '../Store';
-import {getMakeByMfrAndYear} from '../api/ApiCalls';
+import {getMakeByMfrAndYear} from '../api/Vehicles';
 import {MakeI} from '../interfaces/MakeI';
 
 const Make = (): React.ReactNode => {
