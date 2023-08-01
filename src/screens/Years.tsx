@@ -1,11 +1,11 @@
 import React from 'react';
-import {FlatList, StyleSheet} from 'react-native';
-import NavSteep, {SteepOption} from '../components/NavSteep';
+import {FlatList} from 'react-native';
+import {SteepOption} from '../components/NavSteep';
 import ListOptionSelector from '../components/ListOptionSelector';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {useDispatch} from 'react-redux';
 import {setYear} from '../slices/AutoPartSlice';
 import {useNavigation} from '@react-navigation/native';
+import ScreenLayout from '../components/ScreenLayout';
 
 const yearStart = 1995;
 const yearStop = 2024;
@@ -24,8 +24,7 @@ const Years = (): React.ReactNode => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <NavSteep navSteepSelected={SteepOption.Years} />
+    <ScreenLayout navSteep={SteepOption.Years}>
       <FlatList
         keyExtractor={(_, index) => `year-${index}`}
         data={years}
@@ -38,15 +37,8 @@ const Years = (): React.ReactNode => {
           );
         }}
       />
-    </SafeAreaView>
+    </ScreenLayout>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    top: '-7%',
-  },
-});
 
 export default Years;
